@@ -159,7 +159,7 @@ const plotHistory = (
     plotly.react(plotDomId, [])
     return
   }
-  let trialsForLinePlot: Trial[] = []
+  const trialsForLinePlot: Trial[] = []
   let currentBest: number | null = null
   filteredTrials.forEach((item) => {
     if (currentBest === null) {
@@ -182,9 +182,9 @@ const plotHistory = (
       : trial.datetime_complete!
   }
 
-  let xForLinePlot = trialsForLinePlot.map(getAxisX)
+  const xForLinePlot = trialsForLinePlot.map(getAxisX)
   xForLinePlot.push(getAxisX(filteredTrials[filteredTrials.length - 1]))
-  let yForLinePlot = trialsForLinePlot.map((t: Trial): number => t.value!)
+  const yForLinePlot = trialsForLinePlot.map((t: Trial): number => t.value!)
   yForLinePlot.push(yForLinePlot[yForLinePlot.length - 1])
 
   const plotData: Partial<plotly.PlotData>[] = [

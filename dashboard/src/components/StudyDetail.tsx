@@ -86,7 +86,7 @@ export const useStudyDetailValue = (studyId: number): StudyDetail | null => {
   return studyDetails[studyId] || null
 }
 
-export const StudyDetail: FC<{}> = () => {
+export const StudyDetail: FC = () => {
   const classes = useStyles()
   const action = actionCreator()
   const { studyId } = useParams<ParamTypes>()

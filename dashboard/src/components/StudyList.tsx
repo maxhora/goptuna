@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-export const StudyList: FC<{}> = () => {
+export const StudyList: FC = () => {
   const classes = useStyles()
   const [openNewStudyDialog, setOpenNewStudyDialog] = React.useState(false)
   const [openDeleteStudyDialog, setOpenDeleteStudyDialog] = React.useState(

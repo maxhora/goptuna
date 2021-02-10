@@ -30,7 +30,7 @@ const plotCoordinate = (trials: Trial[]) => {
     plotly.react(plotDomId, [])
     return
   }
-  let filteredTrials = trials.filter(
+  const filteredTrials = trials.filter(
     (t) => t.state === "Complete" || t.state === "Pruned"
   )
 
@@ -48,7 +48,7 @@ const plotCoordinate = (trials: Trial[]) => {
   }
 
   const objectiveValues: number[] = filteredTrials.map((t) => t.value!)
-  let dimensions = [
+  const dimensions = [
     {
       label: "Objective value",
       values: objectiveValues,
