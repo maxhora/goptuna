@@ -207,6 +207,7 @@ func (s *Study) runTrial(objective FuncObjective) (int, error) {
 		Study: s,
 		ID:    trialID,
 	}
+	s.logger.Info("CallRelativeSampler...")
 	err = trial.CallRelativeSampler()
 	if err != nil {
 		s.logger.Error("failed to call relative sampler",
@@ -214,6 +215,7 @@ func (s *Study) runTrial(objective FuncObjective) (int, error) {
 		return -1, err
 	}
 
+	s.logger.Info("Call objective...")
 	evaluation, objerr := objective(trial)
 	var state TrialState
 	if objerr == ErrTrialPruned {
