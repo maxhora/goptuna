@@ -210,6 +210,7 @@ func (s *Storage) GetAllStudySummaries() ([]goptuna.StudySummary, error) {
 // CreateNewTrial creates trial and returns trialID.
 func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 	var trialID int
+	fmt.Println("\nCreateNewTrial started")
 	err := s.db.Transaction(func(tx *gorm.DB) error {
 		var study studyModel
 
@@ -237,6 +238,7 @@ func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 		}
 
 		// Calculate the trial number
+		fmt.Println("\nStarting calculating number")
 		var number int64
 		err := tx.Model(&trialModel{}).
 			Where("study_id = ?", studyID).
@@ -245,6 +247,7 @@ func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 		if err != nil {
 			return err
 		}
+		fmt.Println("\nDone. Updating number")
 
 		err = tx.Model(&trialModel{}).
 			Where("trial_id = ?", trial.ID).
@@ -252,9 +255,11 @@ func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 		if err != nil {
 			return err
 		}
+		fmt.Println("\nDone")
 		trialID = trial.ID
 		return nil
 	})
+	fmt.Println("\nCreateNewTrial ended")
 	return trialID, err
 }
 
