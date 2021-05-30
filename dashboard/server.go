@@ -9,8 +9,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/c-bata/goptuna"
 	"github.com/gorilla/mux"
+	"github.com/maxhora/goptuna"
 )
 
 var (
@@ -113,7 +113,7 @@ func handleCreateStudy(w http.ResponseWriter, r *http.Request) {
 	}
 	direction := strings.ToLower(req.Direction)
 	if req.Name == "" || (direction != "maximize" && direction != "minimize") {
-		// TODO(c-bata): Return bad request if study already exist
+		// TODO(maxhora): Return bad request if study already exist
 		writeErrorResponse(w, http.StatusBadRequest, "Invalid JSON payload")
 		return
 	}
@@ -154,7 +154,7 @@ func handleDeleteStudy(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if err := storage.DeleteStudy(studyID); err != nil {
-		// TODO(c-bata): Return bad request if study is not found
+		// TODO(maxhora): Return bad request if study is not found
 		writeErrorResponse(w, http.StatusInternalServerError, "Internal server error")
 		return
 	}

@@ -6,8 +6,8 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/c-bata/goptuna"
-	"github.com/c-bata/goptuna/internal/random"
+	"github.com/maxhora/goptuna"
+	"github.com/maxhora/goptuna/internal/random"
 	"gonum.org/v1/gonum/floats"
 )
 

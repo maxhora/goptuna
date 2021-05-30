@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/c-bata/goptuna/sobol"
+	"github.com/maxhora/goptuna/sobol"
 )
 
 func main() {

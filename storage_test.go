@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/c-bata/goptuna"
+	"github.com/maxhora/goptuna"
 )
 
 func ExampleInMemoryStorage_CreateNewStudy() {

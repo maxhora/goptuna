@@ -6,11 +6,11 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/c-bata/goptuna/internal/testutil"
+	"github.com/maxhora/goptuna/internal/testutil"
 
-	"github.com/c-bata/goptuna"
+	"github.com/maxhora/goptuna"
 
-	"github.com/c-bata/goptuna/tpe"
+	"github.com/maxhora/goptuna/tpe"
 )
 
 func TestDefaultGamma(t *testing.T) {

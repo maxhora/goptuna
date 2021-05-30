@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/c-bata/goptuna"
+	"github.com/maxhora/goptuna"
 )
 
 func TestDistributionConversionBetweenDistributionAndJSON(t *testing.T) {

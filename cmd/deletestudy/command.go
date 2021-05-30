@@ -3,8 +3,8 @@ package deletestudy
 import (
 	"os"
 
-	"github.com/c-bata/goptuna/internal/sqlalchemy"
-	"github.com/c-bata/goptuna/rdb.v2"
+	"github.com/maxhora/goptuna/internal/sqlalchemy"
+	"github.com/maxhora/goptuna/rdb.v2"
 	"github.com/spf13/cobra"
 )
 

@@ -5,7 +5,7 @@ See [Introduction to Kurobako: A Benchmark Tool for Hyperparameter Optimization 
 
 ## How to run benchmark scripts
 
-GitHub Actions continuously run the benchmark scripts and comment on your pull request using [github-actions-kurobako](https://github.com/c-bata/github-actions-kurobako).
+GitHub Actions continuously run the benchmark scripts and comment on your pull request using [github-actions-kurobako](https://github.com/maxhora/github-actions-kurobako).
 If you want to run on your local machines, please execute following after installed kurobako.
 
 ```console

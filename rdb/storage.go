@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/c-bata/goptuna"
 	"github.com/google/uuid"
 	"github.com/jinzhu/gorm"
+	"github.com/maxhora/goptuna"
 )
 
 var _ goptuna.Storage = &Storage{}
 
 // NewStorage returns new RDB storage.
-// Deprecated: Please use `github.com/c-bata/goptuna/rdb.v2` package.
+// Deprecated: Please use `github.com/maxhora/goptuna/rdb.v2` package.
 func NewStorage(db *gorm.DB) *Storage {
 	return &Storage{
 		db: db,
@@ -20,7 +20,7 @@ func NewStorage(db *gorm.DB) *Storage {
 }
 
 // Storage stores data in your relational databases.
-// Deprecated: Please use `github.com/c-bata/goptuna/rdb.v2` package.
+// Deprecated: Please use `github.com/maxhora/goptuna/rdb.v2` package.
 type Storage struct {
 	db *gorm.DB
 }
@@ -225,6 +225,7 @@ func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 	}
 
 	// Calculate the trial number
+	fmt.Printf("\nCalculate the trial number...")
 	var number int
 	err := tx.Model(&trialModel{}).
 		Where("study_id = ?", studyID).
@@ -234,6 +235,7 @@ func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 		tx.Rollback()
 		return -1, err
 	}
+	fmt.Printf("\nDone.")
 
 	err = tx.Model(&trialModel{}).
 		Where("trial_id = ?", trial.ID).
@@ -512,7 +514,7 @@ func (s *Storage) SetTrialState(trialID int, state goptuna.TrialState) error {
 	var trial trialModel
 	var result *gorm.DB
 	if s.db.Dialect().GetName() == "sqlite3" {
-		// TODO(c-bata): Fix concurrency problem on SQLite3.
+		// TODO(maxhora): Fix concurrency problem on SQLite3.
 		// SQLite3 cannot interpret `FOR UPDATE` clause.
 		result = tx.First(&trial, "trial_id = ?", trialID)
 	} else {
@@ -721,7 +723,7 @@ func (s *Storage) GetAllTrials(studyID int) ([]goptuna.FrozenTrial, error) {
 	}
 
 	// Following SQL might raise 'too many SQL variables' error.
-	// See https://github.com/c-bata/goptuna/issues/30 for more details.
+	// See https://github.com/maxhora/goptuna/issues/30 for more details.
 	// err := s.db.
 	// 	Where("study_id = ?", studyID).
 	// 	Preload("UserAttributes").

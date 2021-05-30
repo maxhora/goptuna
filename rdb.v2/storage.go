@@ -8,8 +8,8 @@ import (
 
 	"gorm.io/gorm/clause"
 
-	"github.com/c-bata/goptuna"
 	"github.com/google/uuid"
+	"github.com/maxhora/goptuna"
 	"gorm.io/gorm"
 )
 
@@ -218,7 +218,7 @@ func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 		// Note that SQLite3 cannot interpret `FOR UPDATE` clause.
 		result := tx.Clauses(clause.Locking{Strength: "UPDATE"}).First(&study, "study_id = ?", studyID)
 
-		// TODO(c-bata): Catch deadlock error and retry.
+		// TODO(maxhora): Catch deadlock error and retry.
 		// https://dev.mysql.com/doc/refman/5.7/en/innodb-deadlocks-handling.html
 		// https://github.com/optuna/optuna/pull/1490#discussion_r451297057
 		if result.Error != nil {
@@ -269,7 +269,7 @@ func (s *Storage) CloneTrial(studyID int, baseTrial goptuna.FrozenTrial) (int, e
 		// Note that SQLite3 cannot interpret `FOR UPDATE` clause.
 		result := tx.Clauses(clause.Locking{Strength: "UPDATE"}).First(&study, "study_id = ?", studyID)
 
-		// TODO(c-bata): Catch deadlock error and retry.
+		// TODO(maxhora): Catch deadlock error and retry.
 		// https://dev.mysql.com/doc/refman/5.7/en/innodb-deadlocks-handling.html
 		// https://github.com/optuna/optuna/pull/1490#discussion_r451297057
 		if result.Error != nil {
@@ -694,7 +694,7 @@ func (s *Storage) GetAllTrials(studyID int) ([]goptuna.FrozenTrial, error) {
 	}
 
 	// Following SQL might raise 'too many SQL variables' error.
-	// See https://github.com/c-bata/goptuna/issues/30 for more details.
+	// See https://github.com/maxhora/goptuna/issues/30 for more details.
 	// err := s.db.
 	// 	Where("study_id = ?", studyID).
 	// 	Preload("UserAttributes").

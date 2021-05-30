@@ -3,8 +3,8 @@ package successivehalving_test
 import (
 	"testing"
 
-	"github.com/c-bata/goptuna"
-	"github.com/c-bata/goptuna/successivehalving"
+	"github.com/maxhora/goptuna"
+	"github.com/maxhora/goptuna/successivehalving"
 )
 
 func TestOptunaPruner_IntermediateValues(t *testing.T) {

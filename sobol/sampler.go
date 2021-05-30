@@ -4,7 +4,7 @@ import (
 	"math"
 	"sort"
 
-	"github.com/c-bata/goptuna"
+	"github.com/maxhora/goptuna"
 )
 
 var _ goptuna.RelativeSampler = &Sampler{}

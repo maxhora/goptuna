@@ -12,7 +12,7 @@ import (
 	"github.com/rakyll/statik/fs"
 
 	//nolint: golint
-	_ "github.com/c-bata/goptuna/dashboard/statik"
+	_ "github.com/maxhora/goptuna/dashboard/statik"
 )
 
 func registerStaticFileRoutes(r *mux.Router, prefix string) error {

@@ -336,7 +336,7 @@ function stableSort<T>(
   orderBy: number,
   columns: DataGridColumn<T>[]
 ) {
-  // TODO(c-bata): Refactor here by implementing as the same comparator interface.
+  // TODO(maxhora): Refactor here by implementing as the same comparator interface.
   const less = columns[orderBy].less
   const comparator = getComparator(order, columns, orderBy)
   const stabilizedThis = array.map((el, index) => [el, index] as [T, number])

@@ -84,7 +84,7 @@ func (s *Study) popWaitingTrialID() (int, error) {
 		return -1, err
 	}
 
-	// TODO(c-bata): Reduce database query counts for extracting waiting trials.
+	// TODO(maxhora): Reduce database query counts for extracting waiting trials.
 	for i := range trials {
 		if trials[i].State != TrialStateWaiting {
 			continue
@@ -194,6 +194,7 @@ func (s *Study) runTrial(objective FuncObjective) (int, error) {
 		return -1, err
 	}
 	if trialID == -1 {
+		s.logger.Info("Creating New Trial...")
 		trialID, err = s.Storage.CreateNewTrial(s.ID)
 		if err != nil {
 			s.logger.Error("failed to create a new trial",

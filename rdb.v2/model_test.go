@@ -7,7 +7,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/c-bata/goptuna"
+	"github.com/maxhora/goptuna"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )

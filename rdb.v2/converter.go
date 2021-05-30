@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/c-bata/goptuna"
+	"github.com/maxhora/goptuna"
 )
 
 func toFrozenTrial(trial trialModel) (goptuna.FrozenTrial, error) {

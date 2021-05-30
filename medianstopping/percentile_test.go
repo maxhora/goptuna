@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/c-bata/goptuna"
-	"github.com/c-bata/goptuna/medianstopping"
+	"github.com/maxhora/goptuna"
+	"github.com/maxhora/goptuna/medianstopping"
 )
 
 func TestPercentilePruner_PruneWithOneTrial(t *testing.T) {

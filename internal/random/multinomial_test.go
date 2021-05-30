@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/c-bata/goptuna/internal/random"
+	"github.com/maxhora/goptuna/internal/random"
 )
 
 var randomWeightedSelect = func(weights []int, totalWeight int) (int, error) {

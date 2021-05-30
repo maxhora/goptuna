@@ -5,8 +5,8 @@ import (
 	"math"
 	"sort"
 
-	"github.com/c-bata/goptuna"
-	"github.com/c-bata/goptuna/internal/stats"
+	"github.com/maxhora/goptuna"
+	"github.com/maxhora/goptuna/internal/stats"
 )
 
 // NewPercentilePruner is a constructor of percentile pruner

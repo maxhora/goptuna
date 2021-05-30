@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/c-bata/goptuna"
-	"github.com/c-bata/goptuna/rdb"
 	"github.com/jinzhu/gorm"
+	"github.com/maxhora/goptuna"
+	"github.com/maxhora/goptuna/rdb"
 
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )

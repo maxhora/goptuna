@@ -1,8 +1,8 @@
 # Goptuna
 
 ![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)
-[![GoDoc](https://godoc.org/github.com/c-bata/goptuna?status.svg)](https://godoc.org/github.com/c-bata/goptuna)
-[![Go Report Card](https://goreportcard.com/badge/github.com/c-bata/goptuna)](https://goreportcard.com/report/github.com/c-bata/goptuna)
+[![GoDoc](https://godoc.org/github.com/maxhora/goptuna?status.svg)](https://godoc.org/github.com/maxhora/goptuna)
+[![Go Report Card](https://goreportcard.com/badge/github.com/maxhora/goptuna)](https://goreportcard.com/report/github.com/maxhora/goptuna)
 
 Decentralized hyperparameter optimization framework, inspired by [Optuna](https://github.com/optuna/optuna) [1].
 This library is particularly designed for machine learning, but everything will be able to optimize if you can define the objective function
@@ -31,8 +31,8 @@ All algorithms are implemented in pure Go and continuously benchmarked on GitHub
 **Projects using Goptuna:**
 
 * [Kubeflow/Katib: Kubernetes-based system for hyperparameter tuning and neural architecture search.](https://github.com/kubeflow/katib)
-* [c-bata/goptuna-bayesopt: Goptuna sampler for Gaussian Process based bayesian optimization using d4l3k/go-bayesopt.](https://github.com/c-bata/goptuna-bayesopt) [9]
-* [c-bata/goptuna-isucon9q: Applying bayesian optimization for the parameters of MySQL, Nginx and Go web applications.](https://github.com/c-bata/goptuna-isucon9q)
+* [maxhora/goptuna-bayesopt: Goptuna sampler for Gaussian Process based bayesian optimization using d4l3k/go-bayesopt.](https://github.com/maxhora/goptuna-bayesopt) [9]
+* [maxhora/goptuna-isucon9q: Applying bayesian optimization for the parameters of MySQL, Nginx and Go web applications.](https://github.com/maxhora/goptuna-isucon9q)
 * (If you have a project which uses Goptuna and want your own project to be listed here, please submit a GitHub issue.)
 
 
@@ -41,7 +41,7 @@ All algorithms are implemented in pure Go and continuously benchmarked on GitHub
 You can integrate Goptuna in wide variety of Go projects because of its portability of pure Go.
 
 ```console
-$ go get -u github.com/c-bata/goptuna
+$ go get -u github.com/maxhora/goptuna
 ```
 
 ## Usage
@@ -58,8 +58,8 @@ import (
     "log"
     "math"
 
-    "github.com/c-bata/goptuna"
-    "github.com/c-bata/goptuna/tpe"
+    "github.com/maxhora/goptuna"
+    "github.com/maxhora/goptuna/tpe"
 )
 
 // ① Define an objective function which returns a value you want to minimize.
@@ -209,17 +209,17 @@ References:
 
 Presentations:
 
-* :jp: [Goptuna Distributed Bayesian Optimization Framework at Go Conference 2019 Autumn](https://www.slideshare.net/c-bata/goptuna-distributed-bayesian-optimization-framework-at-go-conference-2019-autumn-187538495)
+* :jp: [Goptuna Distributed Bayesian Optimization Framework at Go Conference 2019 Autumn](https://www.slideshare.net/maxhora/goptuna-distributed-bayesian-optimization-framework-at-go-conference-2019-autumn-187538495)
 
 Blog posts:
 
-* [Practical bayesian optimization using Goptuna](https://c-bata.medium.com/practical-bayesian-optimization-in-go-using-goptuna-edf97195fcb5).
+* [Practical bayesian optimization using Goptuna](https://maxhora.medium.com/practical-bayesian-optimization-in-go-using-goptuna-edf97195fcb5).
 
 Status:
 
-* [godoc.org](http://godoc.org/github.com/c-bata/goptuna)
-* [gocover.io](https://gocover.io/github.com/c-bata/goptuna)
-* [goreportcard.com](https://goreportcard.com/report/github.com/c-bata/goptuna)
+* [godoc.org](http://godoc.org/github.com/maxhora/goptuna)
+* [gocover.io](https://gocover.io/github.com/maxhora/goptuna)
+* [goreportcard.com](https://goreportcard.com/report/github.com/maxhora/goptuna)
 
 ## License
 

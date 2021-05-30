@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/c-bata/goptuna/internal/sqlalchemy"
+	"github.com/maxhora/goptuna/internal/sqlalchemy"
 )
 
 func TestParseDatabaseURL(t *testing.T) {

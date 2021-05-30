@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/c-bata/goptuna/cmaes"
+	"github.com/maxhora/goptuna/cmaes"
 )
 
 func objective(x1, x2 float64) float64 {

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/c-bata/goptuna/cmd/createstudy"
-	"github.com/c-bata/goptuna/cmd/dashboard"
-	"github.com/c-bata/goptuna/cmd/deletestudy"
+	"github.com/maxhora/goptuna/cmd/createstudy"
+	"github.com/maxhora/goptuna/cmd/dashboard"
+	"github.com/maxhora/goptuna/cmd/deletestudy"
 
 	"github.com/spf13/cobra"
 

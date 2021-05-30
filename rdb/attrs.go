@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 )
 
-// See https://github.com/c-bata/goptuna/issues/34
+// See https://github.com/maxhora/goptuna/issues/34
 // for the reason why we need following code.
 
 type GoptunaAttr struct {
