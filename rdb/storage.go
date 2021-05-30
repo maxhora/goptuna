@@ -227,17 +227,15 @@ func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 	// Calculate the trial number
 	fmt.Printf("\nCalculate the trial number...")
 	var number int
-	err := tx.Model(&trialModel{}).
+	row := tx.Model(&trialModel{}).
 		Where("study_id = ?", studyID).
 		Where("trial_id < ?", trial.ID).
-		Count(&number).Error
-	if err != nil {
-		tx.Rollback()
-		return -1, err
-	}
+		Select("max(number)").Row()
+	row.Scan(&number)
 	fmt.Printf("\nDone.")
+	number++
 
-	err = tx.Model(&trialModel{}).
+	err := tx.Model(&trialModel{}).
 		Where("trial_id = ?", trial.ID).
 		Update("number", number).Error
 	if err != nil {
