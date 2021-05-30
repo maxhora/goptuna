@@ -2,6 +2,8 @@ package rdb
 
 import (
 	"fmt"
+	"log"
+	"os"
 	"time"
 
 	"github.com/google/uuid"
@@ -202,6 +204,12 @@ func (s *Storage) GetAllStudySummaries() ([]goptuna.StudySummary, error) {
 
 // CreateNewTrial creates trial and returns trialID.
 func (s *Storage) CreateNewTrial(studyID int) (int, error) {
+	logger := goptuna.StdLogger{
+		Logger: log.New(os.Stdout, "", log.LstdFlags),
+		Level:  goptuna.LoggerLevelDebug,
+		Color:  true,
+	}
+	logger.Info("CreateNewTrial started")
 	tx := s.db.Begin()
 	if tx.Error != nil {
 		return -1, tx.Error
@@ -211,6 +219,7 @@ func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 			tx.Rollback()
 		}
 	}()
+	logger.Info("s.db.Begin() is done")
 
 	// Create a new trial
 	start := time.Now()
@@ -224,17 +233,20 @@ func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 		return -1, err
 	}
 
+	logger.Info("tx.Create is done")
+
 	// Calculate the trial number
-	fmt.Printf("\nCalculate the trial number...")
+	logger.Info("Calculate the trial number...")
 	var number int
 	row := tx.Model(&trialModel{}).
 		Where("study_id = ?", studyID).
 		Where("trial_id < ?", trial.ID).
 		Select("max(number)").Row()
 	row.Scan(&number)
-	fmt.Printf("\nDone.")
+	logger.Info("Done.")
 	number++
 
+	logger.Info("Updating trial number...")
 	err := tx.Model(&trialModel{}).
 		Where("trial_id = ?", trial.ID).
 		Update("number", number).Error
@@ -242,7 +254,9 @@ func (s *Storage) CreateNewTrial(studyID int) (int, error) {
 		tx.Rollback()
 		return -1, err
 	}
+	logger.Info("Done. Commit...")
 	err = tx.Commit().Error
+	logger.Info("Done.")
 	return trial.ID, err
 }
 
